@@ -113,19 +113,39 @@
 					</article>
 
 					<script>
+						// Diese Funktion läuft sofort aus, wenn die Seite geladen wird
+						window.onload = function() {
+							if (sessionStorage.getItem("isLoggedIn") === "true") {
+								showContent();
+							}
+						};
+
 						function login() {
 							const user = document.getElementById("username").value;
 							const pass = document.getElementById("password").value;
 
-							const validUsers = ["MK", "Apfel","1"];
+							const validUsers = ["MK", "Apfel", "1"];
 							const validPassword = "geheim";
 
 							if (validUsers.includes(user) && pass === validPassword) {
-								document.getElementById("login-box").style.display = "none";
-								document.getElementById("protected-content").style.display = "block";
+								// Login im Speicher hinterlegen
+								sessionStorage.setItem("isLoggedIn", "true");
+								showContent();
 							} else {
 								document.getElementById("login-error").style.display = "block";
 							}
+						}
+
+						// Hilfsfunktion, um den Inhalt anzuzeigen
+						function showContent() {
+							document.getElementById("login-box").style.display = "none";
+							document.getElementById("protected-content").style.display = "block";
+						}
+
+						// Optional: Logout Funktion (falls du einen Button dafür einbauen willst)
+						function logout() {
+							sessionStorage.removeItem("isLoggedIn");
+							location.reload(); 
 						}
 					</script>
 
