@@ -71,7 +71,31 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
-
+.gate {
+	background-image: url("images/gate.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: '';
+	display: inline-block;
+	height: 5em;
+	vertical-align: top;
+	width: 2em;
+}
+.filter-green{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+.logo {
+    display: inline-block;
+    vertical-align: top;
+    width: 4em;               /* Breite je nach Logo-Form anpassen */
+    height: 3.75em;
+    background-image: url("images/gate.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; /* Sorgt dafür, dass das ganze Logo sichtbar ist */
+    content: '';              /* Nur nötig, wenn es ein ::before oder ::after Pseudo-Element ist */
+}
 /* Basic */
 
 	@-ms-viewport {
@@ -3437,7 +3461,16 @@ input, select, textarea {
 		-ms-transform: translateX(0);
 		transform: translateX(0);
 	}
-
+	#logo {
+		background-image: url("images/gate.svg");
+		background-position: right center;
+		background-repeat: no-repeat;
+		content: '';
+		display: inline-block;
+		height: 3.75em;
+		vertical-align: top;
+		width: 2em;
+	}
 /* Header */
 
 	#header {
@@ -3481,7 +3514,8 @@ input, select, textarea {
 					}
 
 				}
-
+		
+		
 		#header nav {
 			height: inherit;
 			line-height: inherit;
